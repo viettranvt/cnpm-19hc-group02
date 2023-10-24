@@ -1,0 +1,49 @@
+.home-page {
+    height: 100vh;
+    /* width: 1200px !important;
+    margin: auto; */
+    background: url('../../../../assets/Images/background_home.jpg');
+    background-repeat: no-repeat;
+    /* border: 1px solid black; */
+}
+
+.header-container {
+    background: #2fcae2;
+    /* min-width: 1198px !important; */
+    /* position: fixed; */
+    height: 50px;
+    z-index: 99!important;
+    -webkit-transition: transform .5s,-webkit-transform .5s;
+    transition: transform .5s,-webkit-transform .5s;
+}
+
+.main-container {
+    /* min-width: 1000px !important; */
+    margin: 100px 50px 0px 50px;
+}
+
+.footer-container {
+    margin-top: 20px;
+    background: #2fcae2;
+    /* min-width: 1200px !important; */
+}
+
+.format-tab {
+    width: 225px;
+}
+
+.format-table {
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.format-button {
+    width: 350px;
+    text-align: left;
+}
+
+:host /deep/ table > tr {
+    vertical-align: top;
+    height: 65px;
+}

@@ -1,0 +1,56 @@
+.navbar {
+    min-height: 1px;
+    margin-bottom: unset;
+}
+
+.navbar-default {
+    background-color: unset;
+}
+
+.sub-content-footer {
+    border-top: 1px double black;
+    padding-top: 0px;
+    background-color:  #add1f0;
+    padding-left: 1px;
+    padding-right: 5px;
+}
+
+.func-bar {
+    width: 100%;
+    margin: 2px;
+}
+
+.funcbutton {
+    height: 34px;
+    border-radius: 5px;
+    border-right-width: thick;
+    width: 100% !important;
+    font-size: 10pt;
+    padding-left: 30px;
+}
+
+.funcbutton:disabled {
+    cursor: not-allowed;
+    background-color: dimgrey;
+    background-position: 0px - 60px;
+}
+
+.status-bar {
+    width: 100%;
+    background-color: #225B95;
+    border: 2px solid;
+    margin: 2px;
+    font-size: 10pt;
+    border-collapse: unset;
+}
+
+.status-bar tr {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.status-bar td {
+    padding-left: 3px;
+    padding-right: 3px;
+}

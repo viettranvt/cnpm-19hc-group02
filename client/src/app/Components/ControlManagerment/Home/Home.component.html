@@ -1,0 +1,134 @@
+<div class="home-page">
+    <div class="header-container">
+        <div style="float: left;">
+            <img style="height: 50px;" id="imgLogo" src="../../../../assets/Images/board.jpg" />
+        </div>
+        <div style="float: right;">
+            <button style="width: 120px; height: 50px;" type="button" id="LogOut" class="btn btn-success"
+                (click)="LogOut()">ĐĂNG XUẤT</button>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="main">
+            <wj-tab-panel style="height: 450px; width: 904px; margin: auto; border: 2px solid black;"
+                [selectedIndex]="0">
+                <wj-tab>
+                    <a class="format-tab">QUẢN LÝ KHÁCH HÀNG</a>
+                    <div>
+                        <table id="tblQLKH" class="format-table">
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoRegisterCustomer" *ngIf="LISTBUTTON.RegisterCustomer"
+                                        class="btn btn-success format-button" (click)="GotoRegisterCustomer()">ĐĂNG KÝ
+                                        THÔNG TIN KHÁCH HÀNG</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoInfoCustomer" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.ListCustomer" (click)="GotoInfoCustomer()">DANH SÁCH KHÁCH
+                                        HÀNG</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button type="button" id="GotoEditCustomer" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.UpdateCustomer" (click)="GotoEditCustomer()">CẬP NHẬT THÔNG
+                                        TIN KHÁCH HÀNG</button>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <button type="button" id="GotoPayBill" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.PayBill" (click)="GotoPayBill()">THANH TOÁN</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </wj-tab>
+                <wj-tab>
+                    <a class="format-tab"> QUẢN LÝ PHÒNG </a>
+                    <div>
+                        <table id="tblQLPH" class="format-table">
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoBookingRoom" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.BookingRoom" (click)="GotoBookingRoom()">ĐẶT PHÒNG</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoListRooms" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.ListRoom" (click)="GotoListRooms()">DANH SÁCH
+                                        PHÒNG</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </wj-tab>
+                <wj-tab>
+                    <a class="format-tab">QUẢN LÝ DỊCH VỤ</a>
+                    <div>
+                        <table id="tblDVTI" class="format-table">
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoBookingFoods" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.BookingFood" (click)="GotoBookingFoods()">ĐẶT THỨC
+                                        ĂN</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoListFoods" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.ListFood" (click)="GotoListFoods()">DANH SÁCH MÓN
+                                        ĂN</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoBookingServices" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.BookingServices" (click)="GotoBookingServices()">THÊM TIỆN
+                                        ÍCH</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <!-- <button type="button" id="" class="btn btn-success format-button">DANH SÁCH MÓN ĂN</button> -->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </wj-tab>
+                <wj-tab>
+                    <a class="format-tab">QUẢN LÝ THÔNG TIN</a>
+                    <div>
+                        <table id="tblTTCN" class="format-table">
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoChangePassWrd" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.ChangePassword" (click)="GotoChangePassWrd()">ĐỔI MẬT
+                                        KHẨU</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoUpdateInfoUser" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.UpdateUser" (click)="GotoUpdateInfoUser()">CẬP NHẬT THÔNG
+                                        TIN</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoRevenueStatistics"
+                                        *ngIf="LISTBUTTON.RevenueStatistics" class="btn btn-success format-button"
+                                        (click)="GotoRevenueStatistics()">THỐNG KÊ
+                                        DOANH THU</button>
+                                </td>
+                                <td style="width: 100px;"></td>
+                                <td style="width: 350px;">
+                                    <button type="button" id="GotoRestaurantRevenue" class="btn btn-success format-button"
+                                        *ngIf="LISTBUTTON.RestaurantRevenue" (click)="GotoRestaurantRevenue()">THỐNG KÊ
+                                        DOANH THU NHÀ HÀNG</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </wj-tab>
+            </wj-tab-panel>
+        </div>
+    </div>
+</div>

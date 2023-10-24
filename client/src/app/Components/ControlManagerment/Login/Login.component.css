@@ -1,0 +1,23 @@
+.login-page {
+    height: 100vh;
+    background: url('../../../Content/Images/background.jpg');
+    /* background-color: lightblue; */
+    background-repeat: no-repeat;
+}
+
+.login-form {
+    padding-top: 10%;
+}
+
+.login-box {
+    width: 500px;
+    margin: 0 auto;
+    padding: 50px 50px 10px 50px;
+    background-color: white;
+    border: solid 5px green;
+    border-radius: 10px;
+}
+
+.login-box input, button {
+    width: 100% !important;
+}

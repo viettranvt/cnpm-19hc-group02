@@ -1,0 +1,54 @@
+<div id="modalHeader" class="modal-header-custom" cdkDrag cdkDragHandle cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <h4 class="modal-title-custom">{{title}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="decline()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div id="modalBody" class="modal-body-custom">
+    <table style="table-layout: fixed; width: 100%;">
+        <tr>
+            <td style="width: 61px; vertical-align: text-top;">
+                <div class="col-icon">
+                    <div class="alert alert-danger alert-icon" role="alert" *ngIf="dialogType === 1">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </div>
+                    <div class="alert alert-success alert-icon" role="alert" *ngIf="dialogType === 2">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </div>
+                    <div class="alert alert-info alert-icon" role="alert" *ngIf="dialogType === 3">
+                        <span class="glyphicon glyphicon-question-sign"></span>
+                    </div>
+                    <div class="alert alert-info alert-icon" role="alert" *ngIf="dialogType === 4">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </div>
+                    <div class="alert alert-warning alert-icon" role="alert" *ngIf="dialogType === 5">
+                        <span class="glyphicon glyphicon-warning-sign"></span>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="col-message">
+                    <div class="message" *ngFor="let messageItem of messArr">
+                        {{messageItem}}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="col-message">
+                    <div class="message-detail" *ngIf="messageDetail != ''">
+                        <p style="font-weight: bold;">Chi tiết:</p>
+                        <div class="message-content">
+                            <div *ngFor="let detailItem of messDetailArr">&nbsp;&nbsp;&nbsp;&nbsp;{{detailItem}}</div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="modalFooter" class="modal-footer-custom">
+    <button type="button" id="btnOK" class="btn btn-primary" (click)="accept()">{{btnOkText}}</button>
+    <button type="button" id="btnNo" class="btn btn-danger" (click)="decline()" *ngIf="isShowCancel()">{{btnCancelText}}</button>
+</div>

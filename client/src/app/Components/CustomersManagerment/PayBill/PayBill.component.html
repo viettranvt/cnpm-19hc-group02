@@ -1,0 +1,169 @@
+<div class="body-sub" cdkDrag cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <app-com-header cdkDragHandle [PAGE_TITLE]="PageTitle" [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM"
+        [ELE_REF]="elementRef" (CLOSE_FUNC)="BT_FUNC1_Click()">
+    </app-com-header>
+    <div class="sub-content">
+        <div class="sub-content-detail">
+            <p style="width: 500px;">THANH TOÁN</p>
+            <hr class="double-line">
+            <table id="selectPara">
+                <tr>
+                    <td style="width: 300px;">Chọn mã giao dịch:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-combo-box #ddlBookingID style="width: 250px; height: 28px;" [displayMemberPath]="'sName'"
+                            [selectedValuePath]="'sCode'" [isEditable]="false">
+                        </wj-combo-box>
+                    </td>
+                    <td>
+                        <button type="button" style="width: 100px; height: 35px;" id="" class="btn btn-success"
+                            (click)="Search()">TÌM KIẾM</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="float-left" style="width: 1024px; margin-top: 20px;">
+                <table id="InfoPayBill" style="border: 1px solid black; margin-bottom: 20px;">
+                    <tr>
+                        <th style="width: 175px; border: 1px solid black; text-align: center;">Khách hàng</th>
+                        <th style="width: 100px; border: 1px solid black; text-align: center;">Phí phòng</th>
+                        <th style="width: 100px; border: 1px solid black; text-align: center;">Phí thức ăn</th>
+                        <th style="width: 100px; border: 1px solid black; text-align: center;">Phí dịch vụ</th>
+                        <th style="width: 200px; border: 1px solid black; text-align: center;">Hình thức thanh toán</th>
+                        <th style="width: 300px; border: 1px solid black; text-align: center;">Ghi chú</th>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; padding-left: 10px;">{{fullName}}</td>
+                        <td style="border: 1px solid black; padding-left: 10px;">{{priceRoom}}</td>
+                        <td style="border: 1px solid black; padding-left: 10px;">{{priceFood}}</td>
+                        <td style="border: 1px solid black; padding-left: 10px;">{{priceServices}}</td>
+                        <td style="border: 1px solid black;">
+                            <wj-combo-box #ddlpaymentType style="width: 200px; height: 28px;"
+                                [displayMemberPath]="'sName'" [selectedValuePath]="'sCode'" [isEditable]="false">
+                            </wj-combo-box>
+                        </td>
+                        <td style="border: 1px solid black;">
+                            <wj-input-mask #notes style="width: 300px;" [isDisabled]="false"></wj-input-mask>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="border: 1px solid black; text-align: center;">
+                            <button type="button" style="height: 30px; width: 90px;" id="" class="btn btn-success"
+                                [style.visibility]="ishiddenfullName? 'hidden': 'visible'"
+                                (click)="ShowInfoDetail(1)">CHI
+                                TIẾT</button>
+                        </td>
+                        <td style="border: 1px solid black; text-align: center;">
+                            <button type="button" style="height: 30px; width: 90px;" id="" class="btn btn-success"
+                                [style.visibility]="ishiddenpriceRoom? 'hidden': 'visible'"
+                                (click)="ShowInfoDetail(2)">CHI
+                                TIẾT</button>
+                        </td>
+                        <td style="border: 1px solid black; text-align: center;">
+                            <button type="button" style="height: 30px; width: 90px;" id="" class="btn btn-success"
+                                [style.visibility]="ishiddenpriceFood? 'hidden': 'visible'"
+                                (click)="ShowInfoDetail(3)">CHI
+                                TIẾT</button>
+                        </td>
+                        <td style="border: 1px solid black; text-align: center;">
+                            <button type="button" style="height: 30px; width: 90px;" id="" class="btn btn-success"
+                                [style.visibility]="ishiddenpriceServices? 'hidden': 'visible'"
+                                (click)="ShowInfoDetail(4)">CHI
+                                TIẾT</button>
+                        </td>
+                        <td style="border: 1px solid black; font-weight: bold; text-align: right; padding-right: 10px;">
+                            Tổng tiền:</td>
+                        <td style="border: 1px solid black; padding-left: 20px;">{{priceTotal}}</td>
+                    </tr>
+                </table>
+
+                <div *ngIf="isShow1">
+                    <table id="InfoCustomer" style="border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Tên khách hàng</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoCustomer.fullName}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Địa chỉ</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoCustomer.address}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Số điện thoại</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoCustomer.phoneNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">
+                                {{infoCustomer.identityType}}</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoCustomer.identityId}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div *ngIf="isShow2">
+                    <table id="InfoCustomer" style="border: 1px solid black;">
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Mã phòng</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoRoom.code}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Số giường
+                            </td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoRoom.numOfBeds}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">View</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoRoom.view}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Giá phòng/ngày</td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{infoRoom.price}}</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 175px;">Thời gian sử dụng
+                            </td>
+                            <td style="border: 1px solid black; padding-left: 10px; width: 300px;">
+                                {{timeUsed}}</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div [style.visibility]="isShow3 ? 'visible' : 'hidden'">
+                    <wj-flex-grid style="height: 196px; width: 680px;" #sprInfoDetail [allowSorting]="false">
+                        <wj-flex-grid-column [align]="'center'" [binding]="'ID'" [header]="'STT'" [width]="60"
+                            [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                        <wj-flex-grid-column [align]="'left'" [binding]="'NAME'" [header]="'Tên sản phẩm'" [width]="'*'"
+                            [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                        <wj-flex-grid-column [align]="'right'" [binding]="'PRICE'" [header]="'Đơn giá'" [width]="100"
+                            [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                        <wj-flex-grid-column [align]="'center'" [binding]="'NUMBERS'" [header]="'Số lượng'" [width]="100"
+                            [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                        <wj-flex-grid-column [align]="'right'" [binding]="'TOTALPRICE'" [header]="'Thành tiền'"
+                            [width]="100" [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                        <wj-flex-grid-column [align]="'left'" [binding]="'DATEBOOK'" [header]="'Ngày đặt'" [width]="110"
+                            [isReadOnly]="true">
+                        </wj-flex-grid-column>
+                    </wj-flex-grid>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <app-com-footer [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM" [FUNC01_Text]="BT_FUNC1_NAME"
+        [FUNC02_Text]="BT_FUNC2_NAME" [FUNC03_Text]="BT_FUNC3_NAME" (FUNC01)="BT_FUNC1_Click()"
+        (FUNC02)="BT_FUNC2_Click()" (FUNC03)="BT_FUNC3_Click()">
+    </app-com-footer>
+</div>

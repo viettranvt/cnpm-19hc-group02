@@ -1,0 +1,33 @@
+.navbar {
+    min-height: 1px;
+    margin-bottom: unset;
+}
+
+.navbar-default {
+    background-color: unset;
+}
+
+.page-title {
+    height: 35px;
+    cursor: move;
+    color: #fff;
+    background-color: #204d74;
+    font-size: 10pt;
+}
+
+.page-title .title-text {
+    float: left;
+    margin: 7px 15px;
+}
+
+.page-title .title-button {
+    float: right;
+    height: 100%;
+}
+
+.page-title .close {
+    font-size: 18pt;
+    width: 40px;
+    height: 100%;
+    background-color: red;
+}

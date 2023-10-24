@@ -1,0 +1,47 @@
+<div class="body-sub" cdkDrag cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <app-com-header cdkDragHandle [PAGE_TITLE]="PageTitle" [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM"
+        [ELE_REF]="elementRef" (CLOSE_FUNC)="BT_FUNC1_Click()">
+    </app-com-header>
+    <div class="sub-content">
+        <div class="sub-content-detail">
+            <p style="width: 500px;">DANH SÁCH MÓN ĂN</p>
+            <hr class="double-line">
+            <table id="selectPara">
+                <tr>
+                    <td style="width: 300px;">Chọn phân loại món:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-combo-box #ddlTypeFood style="width: 200px; height: 28px;" [displayMemberPath]="'sName'"
+                            [selectedValuePath]="'sCode'" [isEditable]="false">
+                        </wj-combo-box>
+                    </td>
+                    <td>
+                        <button type="button" style="width: 100px; height: 40px;" id="" class="btn btn-success"
+                            (click)="Search()">TÌM KIẾM</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="float-left" style="width: 1024px; margin-top: 30px;">
+                <wj-flex-grid style="height: 282px; width: 1024px;" #sprInfoFood [allowSorting]="false">
+                    <wj-flex-grid-column [align]="'center'" [binding]="'ID'" [header]="'Mã món ăn'" [width]="100">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'NAME'" [header]="'Tên món'" [width]="200">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'GROUPNM'" [header]="'Loại'" [width]="124">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'PRICE'" [header]="'Đơn giá'" [width]="150">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'DESCRIPTION'" [header]="'Mô tả'" [width]="'*'">
+                    </wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <app-com-footer [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM" [FUNC01_Text]="BT_FUNC1_NAME"
+        [FUNC02_Text]="BT_FUNC2_NAME" [FUNC03_Text]="BT_FUNC3_NAME" (FUNC01)="BT_FUNC1_Click()"
+        (FUNC02)="BT_FUNC2_Click()" (FUNC03)="BT_FUNC3_Click()">
+    </app-com-footer>
+</div>

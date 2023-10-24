@@ -1,0 +1,78 @@
+<div class="body-sub" cdkDrag cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <app-com-header cdkDragHandle [PAGE_TITLE]="PageTitle" [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM"
+        [ELE_REF]="elementRef" (CLOSE_FUNC)="BT_FUNC1_Click()">
+    </app-com-header>
+    <div class="sub-content">
+        <div class="sub-content-detail">
+            <p style="width: 500px;">BẢNG THỐNG KÊ DOANH THU</p>
+            <hr class="double-line">
+            <table id="selectPara">
+                <tr>
+                    <td style="width: 350px;">Chọn loại thống kê:</td>
+                    <td style="width: 500px;"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-combo-box #ddlStatisticalType style="width: 200px; height: 28px;"
+                            [displayMemberPath]="'sName'" [selectedValuePath]="'sCode'" [isEditable]="false">
+                        </wj-combo-box>
+                    </td>
+                    <td>
+                        <button type="button" style="width: 100px; height: 40px;" id="" class="btn btn-success"
+                            (click)="Search()">TÌM KIẾM</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div [style.visibility]="isShow1 ? 'visible' : 'hidden'" style="float: left;">
+                            <wj-input-date #dateStart style="width: 160px; margin-right: 5px;" [format]="'dd/MM/yyyy'">
+                            </wj-input-date> ~
+                            <wj-input-date #dateEnd style="width: 160px; margin-left: 5px;" [format]="'dd/MM/yyyy'">
+                            </wj-input-date>
+                        </div>
+                        <div [style.visibility]="isShow2 ? 'visible' : 'hidden'" style="float: left;">
+                            Nhập bookingID:
+                            <wj-input-mask #bookingId style="width: 200px;"></wj-input-mask>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="float-left" style="width: 1024px; margin-top: 10px;">
+                <wj-flex-grid style="height: 282px; width: 1024px;" #sprStatistical [allowSorting]="false">
+                    <wj-flex-grid-column [align]="'center'" [binding]="'STT'" [header]="'STT'" [width]="50">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'BOOKINGID'" [header]="'Booking ID'" [width]="98">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'CUSTOMERNAME'" [header]="'Họ Tên KH'"
+                        [width]="220">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'STARTDATE'" [header]="'Ngày đặt'" [width]="98">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'ENDDATE'" [header]="'Ngày trả'" [width]="98">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'ROOMID'" [header]="'Mã phòng'" [width]="91"></wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'ROOMPRICE'" [header]="'Tiền phòng'" [width]="100">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'FOODPRICE'" [header]="'Tiền thức ăn'"
+                        [width]="120"></wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'SERVICESPRICE'" [header]="'Tiền dịch vụ'"
+                        [width]="120"></wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'TOTAL'" [header]="'Tổng cộng'" [width]="100">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'PAYTYPE'" [header]="'HT thanh toán'"
+                        [width]="150"></wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'NOTE'" [header]="'Ghi chú'" [width]="200">
+                    </wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+            <div class="float-right">
+               Tổng doanh thu: {{sumRevenue}} (VNĐ)
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <app-com-footer [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM" [FUNC01_Text]="BT_FUNC1_NAME"
+        [FUNC02_Text]="BT_FUNC2_NAME" [FUNC03_Text]="BT_FUNC3_NAME" (FUNC01)="BT_FUNC1_Click()"
+        (FUNC02)="BT_FUNC2_Click()" (FUNC03)="BT_FUNC3_Click()">
+    </app-com-footer>
+</div>

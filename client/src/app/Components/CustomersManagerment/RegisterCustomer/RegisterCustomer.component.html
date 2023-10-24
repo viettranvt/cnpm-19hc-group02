@@ -1,0 +1,50 @@
+<div class="body-sub" cdkDrag cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <app-com-header cdkDragHandle [PAGE_TITLE]="PageTitle" [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM"
+        [ELE_REF]="elementRef" (CLOSE_FUNC)="BT_FUNC1_Click()">
+    </app-com-header>
+    <div class="sub-content">
+        <div class="sub-content-detail">
+            <p style="width: 500px;">ĐĂNG KÝ THÔNG TIN KHÁCH HÀNG</p>
+            <hr class="double-line">
+            <table id="inputInfo" style="width: 350px; margin: auto;">
+                <tr>
+                    <td style="width: 300px;">Họ tên:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-input-mask #fullname style="width: 300px;"></wj-input-mask>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-input-mask #address style="width: 300px;"></wj-input-mask>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-input-mask #phoneNumber style="width: 300px;"></wj-input-mask>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số CMND/CCCD:</td>
+                </tr>
+                <tr>
+                    <td>
+                        <wj-input-mask #identityId style="width: 300px;"></wj-input-mask>
+                    </td>
+                </tr>
+            </table>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <app-com-footer [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM" [FUNC01_Text]="BT_FUNC1_NAME"
+        [FUNC02_Text]="BT_FUNC2_NAME" [FUNC03_Text]="BT_FUNC3_NAME" (FUNC01)="BT_FUNC1_Click()"
+        (FUNC02)="BT_FUNC2_Click()" (FUNC03)="BT_FUNC3_Click()">
+    </app-com-footer>
+</div>

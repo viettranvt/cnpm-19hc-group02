@@ -1,0 +1,75 @@
+<div class="body-sub" cdkDrag cdkDragBoundary=".modal" cdkDragRootElement=".modal-content">
+    <app-com-header cdkDragHandle [PAGE_TITLE]="PageTitle" [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM"
+        [ELE_REF]="elementRef" (CLOSE_FUNC)="BT_FUNC1_Click()">
+    </app-com-header>
+    <div class="sub-content">
+        <div class="sub-content-detail">
+            <p style="width: 500px;">ĐẶT MÓN</p>
+            <hr class="double-line">
+            <table id="selectPara">
+                <tr>
+                    <td style="width: 230px;">Chọn loại Khách hàng:</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <mat-radio-group [disabled]="isHideOption" >
+                            <mat-radio-button style="margin-right: 60px;" value="0" (change)="onChange(0)"
+                                [checked]="true">Khách tại khách sạn
+                            </mat-radio-button>
+                            <mat-radio-button value="1" (change)="onChange(1)">Khách bên ngoài</mat-radio-button>
+                        </mat-radio-group>
+                    </td>
+                </tr>
+                <tr>
+                    <td [style.visibility]="showType? 'visible': 'hidden'">Chọn mã giao dịch:</td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'" style="width: 230px;">Tên khách hàng</td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'" style="width: 230px;">Hình thức thanh toán
+                    </td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'">Ghi chú</td>
+                </tr>
+                <tr>
+                    <td [style.visibility]="showType? 'visible': 'hidden'">
+                        <wj-combo-box #ddlBookingID style="width: 200px; height: 28px;" [displayMemberPath]="'sName'"
+                            [selectedValuePath]="'sCode'" [isEditable]="false">
+                        </wj-combo-box>
+                    </td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'">
+                        <wj-input-mask #nameCustomer style="width: 200px;" [isDisabled]="false"></wj-input-mask>
+                    </td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'">
+                        <wj-combo-box #ddlpaymentType style="width: 200px; height: 28px;" [displayMemberPath]="'sName'"
+                            [selectedValuePath]="'sCode'" [isEditable]="false">
+                        </wj-combo-box>
+                    </td>
+                    <td [style.visibility]="showType? 'hidden': 'visible'">
+                        <wj-input-mask #notes style="width: 200px;" [isDisabled]="false"></wj-input-mask>
+                    </td>
+                </tr>
+            </table>
+            <div class="float-left" style="width: 1000px; margin-top: 15px;">
+                <wj-flex-grid style="height: 282px; width: 670px;" #sprInfoFood [allowSorting]="false">
+                    <wj-flex-grid-column [align]="'center'" [binding]="'ID'" [header]="'Mã món ăn'" [width]="'*'"
+                        [visible]="false" [isReadOnly]="true">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'NAME'" [header]="'Tên món'" [width]="250"
+                        [isReadOnly]="true">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'GROUPNM'" [header]="'Loại'" [width]="150"
+                        [isReadOnly]="true">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'left'" [binding]="'PRICE'" [header]="'Đơn giá'" [width]="150"
+                        [isReadOnly]="true">
+                    </wj-flex-grid-column>
+                    <wj-flex-grid-column [align]="'center'" [binding]="'NUMBERS'" [header]="'Số lượng'" [width]="'*'"
+                        [dataType]="2" [maxLength]="2">
+                    </wj-flex-grid-column>
+                </wj-flex-grid>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <app-com-footer [GAMEN_ID]="GamenId" [APP_PARAM]="APP_PARAM" [FUNC01_Text]="BT_FUNC1_NAME"
+        [FUNC02_Text]="BT_FUNC2_NAME" [FUNC03_Text]="BT_FUNC3_NAME" (FUNC01)="BT_FUNC1_Click()"
+        (FUNC02)="BT_FUNC2_Click()" (FUNC03)="BT_FUNC3_Click()">
+    </app-com-footer>
+</div>

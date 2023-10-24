@@ -1,0 +1,102 @@
+.modal-header-custom{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding-left: 10px;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+    background-color: #337ab7;
+    cursor: move;
+}
+
+.modal-header-custom .close {
+    padding: 5px 5px;
+}
+
+.modal-header-danger {
+    background-color: #ff3333 !important;
+}
+
+.modal-header-success{
+    background-color: #5bd75b !important;
+}
+
+.modal-header-info{
+    background-color: #337ab7 !important;
+}
+
+.modal-title-custom{
+    color: #fff;
+    margin-top: 5px;
+    /* line-height: 1; */
+}
+
+.modal-body-custom{
+    position: relative;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1em;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    min-height: 80px;
+    background-color: #fff;
+}
+
+.modal-body-custom .col-icon{
+    float: left;
+    margin-right: 20px;
+}
+
+.modal-body-custom .col-icon .alert-icon{
+    width: 41px;
+    height: 40px;
+    padding: 6px 8px;
+    border-radius: 45px;
+    font-size: 1.5em;
+    margin-bottom: unset;
+}
+
+.modal-body-custom .message {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.modal-body-custom .message-detail {
+    margin: 20px 0px;
+}
+
+.modal-body-custom .message-content {
+    max-height: 450px;
+    word-break: break-all;
+    overflow-y: auto;
+}
+
+.modal-footer-custom{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 5px;
+    border-top: 1px solid #e9ecef;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-color: mediumaquamarine;
+}
+
+.modal-footer-custom > :not(:first-child){
+    margin-left: .25rem;
+}
+
+.modal-footer-custom > :not(:last-child){
+    margin-right: .25rem;
+}
+
+.modal-footer-custom button {
+    min-width: 90px;
+}

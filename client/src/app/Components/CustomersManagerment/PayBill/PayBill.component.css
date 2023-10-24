@@ -1,0 +1,8 @@
+:host /deep/ table > tr {
+    vertical-align: top;
+    height: 35px;
+}
+
+:host /deep/ table > td {
+    height: 25px;
+}
